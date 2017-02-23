@@ -1,5 +1,5 @@
 #SudokuSolver
 
-Made with python
+A program that solves sudoku using python
 
-Mostly for learning how github works
+Mostly for practicing the use of GitHub, but also to practice python
