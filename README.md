@@ -8,7 +8,7 @@ Mostly for practicing the use of GitHub, but also to practice python
 
 -> (Done) A main class
 
--> A sudoku class that read the input, forming a sudoku square, and can solve it, then print it
+-> (Done) A sudoku class that read the input, forming a sudoku square, and can solve it, then print it
 
 -> Show each step of the solving
 
