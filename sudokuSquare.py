@@ -1,4 +1,3 @@
-import random
 # Class for the sudoku square, with the solving function and others.
 
 
@@ -23,25 +22,18 @@ class SudokuSquare:
         print('###################\n')
 
     # Checks if there exists only one number that fits in a certain slot
+    # Runs only once
     def solve(self):
-        # ok is true as long as there is at least one 0 in the sudoku square
-        ok = True
-        while ok:
-            ok = False
-            # Seeking for "definites"
-            for i in range(9):
-                for j in range(9):
-                    if self.sudoku_square[i][j] == 0:
-                        ok = True
-                        self.sudoku_square[i][j] = self.sure_value(i, j)
-            # Temporar
-            ok = False
+        # Seeking for "definites"
+        for i in range(9):
+            for j in range(9):
+                if self.sudoku_square[i][j] == 0:
+                    self.sudoku_square[i][j] = self.sure_value(i, j)
 
     # Returns a number that is certainly the only number that can fit in that slot, else 0
     def sure_value(self, i, j):
         # return x if x != 0 in square
         numar = self.square_value(i, j)
-        print(numar)
         if numar != 0:
             return numar
         # return x if x != 0 in line
@@ -51,8 +43,9 @@ class SudokuSquare:
 
     # Seek "definite" in a square
     def square_value(self, i, j):
-        empty_slot = [0 for nr in range(10)]
+        empty_slot = [0] * 9
         s = 0
+        x = 0
         i_patrat = int(i / 3) * 3
         j_patrat = int(j / 3) * 3
         for ii in range(i_patrat, i_patrat + 3):
