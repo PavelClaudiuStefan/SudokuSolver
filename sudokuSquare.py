@@ -37,13 +37,19 @@ class SudokuSquare:
         if numar != 0:
             return numar
         # return x if x != 0 in line
+        numar = self.line_value(i)
+        if numar != 0:
+            return numar
         # return x if x != 0 in column
+        numar = self.column_value(j)
+        if numar != 0:
+            return numar
         # return 0
         return 0
 
     # Seek "definite" in a square
     def square_value(self, i, j):
-        empty_slot = [0] * 9
+        empty_slot = [0] * 10
         s = 0
         x = 0
         i_patrat = int(i / 3) * 3
@@ -60,3 +66,45 @@ class SudokuSquare:
             return x
         else:
             return 0
+
+    # Seek "definite" in a line
+    def line_value(self, i):
+        empty_slot = [0] * 10
+        s = 0
+        x = 0
+        for ii in range(9):
+            if self.sudoku_square[i][ii] != 0:
+                empty_slot[self.sudoku_square[i][ii]] = 1
+        for ii in range(1, 10):
+            s += empty_slot[ii]
+            if empty_slot[ii] == 0:
+                x = ii
+        if s == 8:
+            return x
+        else:
+            return 0
+
+    # Seek "definite" in a column
+    def column_value(self, j):
+        empty_slot = [0] * 10
+        s = 0
+        x = 0
+        for jj in range(9):
+            if self.sudoku_square[jj][j] != 0:
+                empty_slot[self.sudoku_square[jj][j]] = 1
+        for jj in range(1, 10):
+            s += empty_slot[jj]
+            if empty_slot[jj] == 0:
+                x = jj
+        if s == 8:
+            return x
+        else:
+            return 0
+
+    # Function returns true if square is completely filled
+    def completed(self):
+        for i in range(9):
+            for j in range(9):
+                if self.sudoku_square[i][j] == 0:
+                    return False
+        return True
