@@ -1,10 +1,10 @@
 x 0 1 2 3 4 5 6 7 8
-0 h h h v v v n n n
-1 h h h v v v n n n
-2 h h h v v v n n n
-3 g g g
-4 g g g
-5 g g g
+0 
+1
+2
+3 
+4 
+5 
 6
 7
 8
@@ -26,3 +26,5 @@ sv: 6 7 8 : 0 1 2
 se: 6 7 8 : 6 7 8
 
 exemplu : 4 4 se afla in  
+
+
